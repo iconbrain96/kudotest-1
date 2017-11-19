@@ -6,4 +6,5 @@
 4. Run 'go run main.go' from your terminal.
 5. If everything works fine, go to 'http://localhost:8080' from your browser.
 6. Done.
-*Full code, documentation, and database can be downloaded at https://www.dropbox.com/s/ilm1eu9x2y3hszl/kudo_admin.zip?dl=0
+
+*Note: Full code, documentation, and database can be downloaded at https://www.dropbox.com/s/ilm1eu9x2y3hszl/kudo_admin.zip?dl=0
