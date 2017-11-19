@@ -1,0 +1,13 @@
+{{ define "email" }}
+<div style="color: black; font-size: 13px; width: 50%; text-align: justify;">
+	<p>Hi {{ .Name }},</p>
+	<p style="margin-top: 24px;">Anda telah melakukan permohonan pengaturan ulang kata sandi untuk akun {{ .Email }}</p>
+	<p style="margin-top: 24px;"><b>Jika ini bukan Anda<b></p>
+	<p>Silahkan kunjungi menu <b>Lupa Kata Sandi</b> untuk menghasilkan kata sandi baru.</p>
+	<p style="margin-top: 24px;"><b>Jika ini Anda<b></p>
+	<p>Kata sandi baru untuk akun Anda adalah <b>{{ .NewPasswordGenerated  }}</b>. Anda dapat masuk ke akun Anda dengan menggunakan kata sandi tersebut. Jika kelak di kemudian hari Anda ingin mengganti kata sandi yang telah dihasilkan secara otomatis oleh sistem kami, Anda dapat menggantinya di menu <b>Pengaturan Kata Sandi</b>. Untuk keamanan data, Anda diharapkan untuk mengganti kata sandi secara berkala.</p>
+	<p style="margin-top: 24px;">Apabila Anda memperoleh kesulitan dalam penggunaan layanan silahkan hubungi Layanan Pelanggan di +62-21-2751-4605.</p>
+	<p style="margin-top: 24px;">Salam,<br>Kudo Admin</p>
+	<p style="margin-top: 10px; font-size: 11px; color: #777;">© 2017 Kudo Admin. Dibuat oleh Wilson Brain Permana menggunakan Go Lang.</p>
+</div>
+{{ end }}

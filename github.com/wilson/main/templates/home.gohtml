@@ -1,0 +1,148 @@
+<title>Beranda | Kudo</title>
+{{template "header"}}
+
+<header>
+	<div class="fixed-announcement">
+        <div class="announcement">
+          <div class="container middle-right">{{ .AdminRole }}</div>
+        </div>
+    </div>
+
+    <ul id="slide-out" class="side-nav fixed">
+		<li>
+			<div class="hdr">
+				<a class="site-title" href="/home">
+					<img src="/img/kudo.svg" alt="kudo-logo" />
+				</a>
+			</div>
+		</li>
+		<li>
+			<div class="user-view">
+				<div class="background">
+				    <img src="/img/bg.png" alt="header-background" />
+				</div>
+				<a><img class="circle" src="/img/admin.png" alt="admin" /></a>
+				<a><span class="white-text name">{{ .AdminName }}</span></a>
+				<a class="dropdown-button" data-activates="profile-dropdown">
+					<span class="white-text email">{{ .AdminEmail }}<i class="material-icons right" style="color: white;">arrow_drop_down</i>
+					</span>
+				</a>
+			</div>
+		</li>
+		<li><a class="subheader">Utama</a></li>
+		<li><a class="waves-effect" href="/userLists"><i class="material-icons">supervisor_account</i>Pengguna</a></li>
+		<li><a class="waves-effect" href="/userGroup"><i class="material-icons">group_work</i>Grup Pengguna</a></li>
+		<li><a class="waves-effect" href="/userPermission"><i class="material-icons">accessibility</i>Hak Akses</a></li>
+		<li><a class="subheader">Tambahan</a></li>
+		<li><a class="waves-effect" href="/adminLists"><i class="material-icons">account_circle</i>Admin</a></li>
+	</ul>
+
+	<!-- Dropdown Profile Structure -->
+	<ul id="profile-dropdown" class="dropdown-content w-220">
+	    <li><a href="/adminProfile"><i class="material-icons">account_circle</i>Akun</a></li>
+	    <li><a href="/adminPassword"><i class="material-icons">build</i>Kata Sandi</a></li>
+    	<li class="divider"></li>
+	    <li><a href="/logout" style="color: red;"><i class="material-icons" style="color: red;">lock_outline</i>Keluar</a></li>
+	</ul>
+</header>
+
+<main>
+	<div class="right-col gray-bg">
+		<div class="container">
+	        <div class="section">
+	          <div class="row">
+	            <h4 class="col s12 light center header blue-kudo-based">Kudo Admin dibuat oleh Wilson Brain Permana menggunakan Go Language</h4>
+	          </div>
+	          <!--   Promo Section   -->
+	          <div class="row">
+	            <div class="col s12 m4">
+	              <div class="center promo">
+	                <i class="material-icons" style="font-size: 64px; color: #F6A05C;">flash_on</i>
+	                <p class="promo-caption">Dibuat Dalam Waktu 5 Hari</p>
+	                <p class="font-antialiazed center">Meskipun masih awam dengan Go Language, saya mencoba untuk menyelesaikan website ini menggunakan Go Language dalam waktu 5 hari. Saya mengerahkan semua waktu dan kemampuan yang saya miliki.</p>
+	              </div>
+	            </div>
+	            <div class="col s12 m4">
+	              <div class="center promo">
+	                <i class="material-icons" style="font-size: 64px; color: #F6A05C;">rowing</i>
+	                <p class="promo-caption">Dibangun Seorang Diri</p>
+	                <p class="font-antialiazed center">Website ini saya bangun seorang sendiri, tanpa bantuan dari siapapun. Dengan membaca dokumentasi <a href="https://golang.org/doc/" target="_blank">Go Language</a> dan memanfaatkan tutorial yang ada di <a href="https://www.youtube.com/playlist?list=PLSak_q1UXfPp2VwUQ4ZdUVJdMO6pfi5v_" target="_blank">Youtube</a>, website ini akhirnya dapat diselesaikan dengan baik.</p>
+	              </div>
+	            </div>
+	            <div class="col s12 m4">
+	              <div class="center promo">
+	                <i class="material-icons" style="font-size: 64px; color: #F6A05C;">power</i>
+	                <p class="promo-caption">Test Yang Menantang</p>
+	                <p class="font-antialiazed center">Karena tidak diperkenankan mengunakan PHP Language, maka saya memutuskan untuk menggunakan Go Language. Ini merupakan <i>practical test</i> yang menantang bagi saya, karena ini merupakan pertama kalinya saya menulis <i>code</i> menggunakan Go Language. Saya cukup puas dapat menyelesaikan <i>practical test</i> ini.</p>
+	              </div>
+	            </div>
+	          </div>
+	        </div>
+	        <div class="divider"></div>
+	        <div class="section">
+	          <div class="row center">
+	            <h3 class="light header blue-kudo-based">CSS</h3>
+	            <div class="col s12 m6 offset-m3">
+	              <p class="caption">Website ini menggunakan Materialize CSS.</p>
+	              <img width="100%" src="https://s23.postimg.org/9g7ajckrf/thunder.png" alt="">
+	              <br><br>
+	              <a href="http://materializecss.com" target="_blank" class="btn-large waves-effect waves-light">Telusuri Materialize CSS</a>
+	            </div>
+	          </div>
+	        </div>
+	        <div class="divider"></div>
+	        <div class="section">
+	          <div class="row center">
+	            <h3 class="light header blue-kudo-based">Ikuti Saya</h3>
+	            <div class="col s12 m6 offset-m3">
+	              <p class="caption">Ikuti LinkedIn, Twitter dan Facebook saya.</p>
+	            </div>
+	          </div>
+	          <!--   Promo Section   -->
+	          <div class="row">
+	            <div class="col s12 m4">
+	              <div class="center promo">
+	                <a href="https://www.linkedin.com/in/wilson-brain-076227ab/" target="_blank"><img src="/img/linkedin.png" alt="linkedin" /></a>
+	                <p>Linked In</p>
+	                <p class="color-dark-gray top-10">Wilson Brain</p>
+	              </div>
+	            </div>
+	            <div class="col s12 m4">
+	              <div class="center promo">
+	                <a href="https://twitter.com/iconbrain96" target="_blank"><img src="/img/twitter.png" alt="twitter" /></a>
+	                <p>Twitter</p>
+	                <p class="color-dark-gray top-10">Wilson Brain</p>
+	              </div>
+	            </div>
+	            <div class="col s12 m4">
+	              <div class="center promo">
+	                <a href="https://www.facebook.com/iconbrain96" target="_blank"><img src="/img/facebook.png" alt="facebook" /></a>
+	                <p>Facebook</p>
+	                <p class="color-dark-gray top-10">Wilson Brain</p>
+	              </div>
+	            </div>
+	          </div>
+	        </div>
+	    </div>
+	</div>
+</main>
+
+{{template "footer"}}
+
+{{template "script"}}
+<script>
+	// Initialize collapse button
+  	$(".button-collapse").sideNav();
+  	// Initialize dropdown profile
+  	$(".dropdown-button").dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      constrainWidth: false, // Does not change width of dropdown to that of the activator
+      hover: true, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: false, // Displays dropdown below the button
+      alignment: 'left', // Displays dropdown with edge aligned to the left of button
+      stopPropagation: false // Stops event propagation
+    }
+  );
+</script>
