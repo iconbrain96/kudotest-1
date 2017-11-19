@@ -1,0 +1,177 @@
+<title>Ubah Pengguna | Kudo</title>
+<!-- Jquery datatable -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+{{template "header"}}
+
+<header>
+	<div class="fixed-announcement">
+        <div class="announcement">
+          <div class="container middle-right">{{ .AdminRole }}</div>
+        </div>
+    </div>
+
+    <ul id="slide-out" class="side-nav fixed">
+		<li>
+			<div class="hdr">
+				<a class="site-title" href="/home">
+					<img src="/img/kudo.svg" alt="kudo-logo" />
+				</a>
+			</div>
+		</li>
+		<li>
+			<div class="user-view">
+				<div class="background">
+				    <img src="/img/bg.png" alt="header-background" />
+				</div>
+				<a><img class="circle" src="/img/admin.png" alt="admin" /></a>
+				<a><span class="white-text name">{{ .AdminName }}</span></a>
+				<a class="dropdown-button" data-activates="profile-dropdown">
+					<span class="white-text email">{{ .AdminEmail }}<i class="material-icons right" style="color: white;">arrow_drop_down</i>
+					</span>
+				</a>
+			</div>
+		</li>
+		<li><a class="subheader">Utama</a></li>
+		<li class="active"><a class="waves-effect" href="/userLists"><i class="material-icons">supervisor_account</i>Pengguna</a></li>
+		<li><a class="waves-effect" href="/userGroup"><i class="material-icons">group_work</i>Grup Pengguna</a></li>
+		<li><a class="waves-effect" href="/userPermission"><i class="material-icons">accessibility</i>Hak Akses</a></li>
+		<li><a class="subheader">Tambahan</a></li>
+		<li><a class="waves-effect" href="/adminLists"><i class="material-icons">account_circle</i>Admin</a></li>
+	</ul>
+
+	<!-- Dropdown Profile Structure -->
+	<ul id="profile-dropdown" class="dropdown-content w-220">
+	    <li><a href="/adminProfile"><i class="material-icons">account_circle</i>Akun</a></li>
+	    <li><a href="/adminPassword"><i class="material-icons">build</i>Kata Sandi</a></li>
+    	<li class="divider"></li>
+	    <li><a href="/logout" style="color: red;"><i class="material-icons" style="color: red;">lock_outline</i>Keluar</a></li>
+	</ul>
+</header>
+
+<main>
+	<div class="right-col gray-bg">
+		<div class="pad-50-20">
+	        <div class="section">
+			    <div class="row">
+					<div class="card card-border-10 z-depth-3">
+						<div class="section wrapper pad-20">
+							<div class="row">
+								<div class="container" style="width: 100%">
+						    		<div class="col s12 l4 center-align top25 bottom25">
+						    			<img src="/img/user.png" alt="User Avatar" class="img-profile"></img>
+						    			<br><br>
+
+						    			<div class="profile">
+						    				<p class="text-muted">Bergabung {{ .UserCreatedAt }}</p>
+						    				<li class="divider"></li>
+						    				<ul class="collapsible left-aligned" data-collapsible="accordion" style="border-radius: 10px; text-align: justify;">
+											    <li>
+											      <div class="collapsible-header active"><i class="material-icons" style="color: rgba(0, 0, 0, 0.54)">description</i>Deskripsi</div>
+											      <div class="collapsible-body"><span>{{ .UserDesc }}</span></div>
+											    </li>
+											    <li>
+											      <div class="collapsible-header"><i class="material-icons" style="color: rgba(0, 0, 0, 0.54)">accessibility</i>Hak Akses</div>
+											      <div class="collapsible-body">
+										      		<span>
+										      			<ol style="margin-left: -28px;">
+										      				{{range $i, $a := .GroupAksesArr}}
+										      					<li>{{$a}}</li>
+											  				{{end}}
+										      			</ol>
+										      		</span>
+											      </div>
+											    </li>
+											</ul>
+						    			</div>
+						    		</div>
+									<div class="col s12 l7 offset-l1 profile top25">
+										<h4>{{ .UserName }}</h4>
+										<p class="text-muted">{{ .UserStatus }}</p>
+										<li class="divider"></li>
+
+										<div class="section wrapper">
+											<div class="row">
+												<div class="col s12 m12 l10">
+													<div class="board-content">
+														<p class="text-muted">
+															Anda dapat memperbaharui akun {{ .UserName }}. Silahkan isi dengan informasi yang sah.
+														</p>
+													
+														<form method="POST" action="/userLists/{{ .UserId }}">
+															<div class="row">
+																<div class="input-field col s12">
+																	<input type="text" class="input" name="nama_pengguna" value="{{ .UserName }}" required="required" style="color: black;">
+																	<label class="active prof">Nama Lengkap</label>
+																</div>
+																<div class="input-field col s12">
+																	<input type="email" class="input" name="email_pengguna" value="{{ .UserEmail }}" required="required" style="color: black;">
+																	<label class="active prof">Email</label>
+																</div>
+																<div class="input-field col s12">
+																	<textarea class="materialize-textarea" id="deskripsi_pengguna" name="deskripsi_pengguna" style="color: black;"></textarea>
+																	<label class="active prof">Deskripsi</label>
+																</div>
+																<div class="input-field col s12">
+																	<input type="text" class="input" value="{{ .UserStatus }}" disabled>
+																	<label>Status</label>
+																</div>
+																<div class="input-field col s12">
+																    <select name="user_status">
+																      <option value="" disabled selected>-- Pilihan Anda --</option>
+																      {{range $i, $a := .GroupStatusArr}}
+																		  <option value="{{$a}}">{{$a}}</option>
+																	  {{end}}
+																    </select>
+																</div>
+																{{if .ErrorMessage}}
+																	<div class="col s12">
+																		<div class="error-message">{{ .ErrorMessage }}</div>
+																	</div>
+																{{end}}
+																{{if .SuccessMessage}}
+																	<div class="col s12">
+																		<div class="success-message">{{ .SuccessMessage }}</div>
+																	</div>
+																{{end}}
+															</div>
+															<button class="btn btn-custom waves-effect waves-light green-kudo" type="submit" style="color: white; float: right;">Simpan</button>
+														</form>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+
+{{template "footer"}}
+
+{{template "script"}}
+<script>
+	// Select dropdown 
+	$(document).ready(function() {
+	    $('select').material_select();
+	    $('.collapsible').collapsible();
+		$('#deskripsi_pengguna').val({{ .UserDesc }});
+	});
+	// Initialize collapse button
+  	$(".button-collapse").sideNav();
+  	// Initialize dropdown profile
+  	$(".dropdown-button").dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      constrainWidth: false, // Does not change width of dropdown to that of the activator
+      hover: true, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: false, // Displays dropdown below the button
+      alignment: 'left', // Displays dropdown with edge aligned to the left of button
+      stopPropagation: false // Stops event propagation
+    });
+</script>

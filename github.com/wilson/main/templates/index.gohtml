@@ -1,0 +1,49 @@
+<title>Masuk | Kudo</title>
+
+{{template "header"}}
+
+<div class="row main-div center-horizontally gray-bg" style="padding-top: 50px;">
+	<div class="col s12 m6 offset-m3 l4 offset-l4">
+		<div class="card">
+			<div class="card-title p-16 blue-kudo">
+				<h5 class="login-form">Kudo Admin</h5>
+			</div>
+			<div class="card-content">
+				<form method="POST" action="/">
+					<div class="row no-m-b">
+						<div class="input-field col s12" id="hp-group">
+							<i class="material-icons prefix login-input" style="font-size: 22px;">email</i>
+						      <input id="icon_prefix" type="email" name="email" class="validate">
+						      <label for="icon_prefix">Email</label>
+						</div>
+						<div class="input-field col s12" id="password-group">
+							<i class="material-icons prefix login-input" style="font-size: 22px;">lock</i>
+					      	<input id="icon_telephone" type="password" name="password" class="validate">
+					      	<label for="icon_telephone">Kata Sandi</label>
+						</div>
+					</div>
+					<div class="section message-response error-message">{{ .ErrorMessage }}</div>
+					<div class="row">
+						<div class="col s12 center">
+							<button class="btn btn-custom btn-full waves-effect waves-light green-kudo" type="submit" name="action">Masuk</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="clearfix"></div>
+			<div class="card-action">
+	          <a href="/forgotPassword" class="right" style="color: #9C9C9C">Lupa Kata Sandi?</a>
+	          <div class="clearfix"></div>
+	        </div>
+		</div>
+		<div class="clearfix"></div>
+		<div class="separator">
+	        <div>
+	            <h5><img src="/img/kudo.svg" alt="kudo-logo" /></h5>
+	            <p class="f-13">© 2017 Kudo Admin. Dibuat oleh Wilson Brain Permana menggunakan Go Language.</p>
+	        </div>
+	    </div>
+	</div>
+</div>
+
+{{template "script"}}
